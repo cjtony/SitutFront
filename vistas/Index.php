@@ -5,7 +5,7 @@
             
             <div class="col-lg-6">
                 <div id="columIni" class="">
-                    <h1 class="text-center mt-5 py-5 text-primary iniSes">
+                    <h1 class="text-center mt-5 py-5 text-primary iniSes" style="letter-spacing: 5px;">
                         Inicio de sesión
                     </h1>
                     <form autocomplete="off" class="mt-3 row" method="POST" id="formLogAlm" name="formLogAmd">
@@ -41,7 +41,7 @@
                 <div class="row ocult" id="columReg">
                     <div class="col-sm-1"></div>
                     <div class="col-sm-10">
-                        <h1 class="text-center iniSes text-primary mt-3">Registro</h1>
+                        <h1 class="text-center iniSes text-primary mt-2" style="letter-spacing: 5px;">Registro</h1>
                         <form autocomplete="off" class="mt-4" method="POST" id="formRegAlm" name="formRegAlm">
                             <div class="form-group">
                                 <label for="nomAlm" class="text-primary font-weight-bold">

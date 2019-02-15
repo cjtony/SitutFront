@@ -4,8 +4,18 @@
 	$datAlm = $alumno->userAlmDet($_SESSION['keyAlm']);
 	if ($datAlm) {
 		if ($datAlm->id_detgrupo != "") {
-		$datGrpAlm = $alumno->datGrpAlm($_SESSION['keyAlm']);
+			$datGrpAlm = $alumno->datGrpAlm($_SESSION['keyAlm']);
 		}
+	function formatFech($fechForm) {
+		$fechDat = substr($fechForm, 0,4);
+		$fechM = substr($fechForm, 5,2);
+		$fechD = substr($fechForm, 8,2);
+		$dias = array("Domingo","Lunes","Martes","Miercoles","Jueves","Viernes","Sábado");
+		$meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+		$Fecha = date($fechD)." de ".$meses[date($fechM)-1]. " del ".date($fechDat);
+		return $Fecha;
+	}
+
 ?>
 	<style type="text/css">
 		div .list-group .active {
@@ -88,11 +98,15 @@
                 </div>
 			</div>
 			<div class="col-md-8 col-lg-9">
-				<div class="text-center bg-primary p-1" style="border-radius: 8px;">
-					<h4 class="text-center text-white mt-3">
-						Tutorías Personales Solicitadas
-					</h4>
-				</div>
+				<nav aria-label="breadcrumb">
+				  	<ol class="breadcrumb">
+				    	<li class="breadcrumb-item"><a href="<?php echo SERVERURLALM; ?>Home/">Inicio</a></li>
+				    	<li class="breadcrumb-item active" aria-current="page">
+				    		<i class="fas fa-chalkboard-teacher ml-2 mr-2"></i>
+				    		Tutoría
+				    	</li>
+				  	</ol>
+				</nav>
 				<div class="row pad30">
 					<?php 
 						$dbc = Connect::getDB();
@@ -113,7 +127,7 @@
 												<?php 
 													if ($res->estado_tut == 1) {
 												?>
-													<span class="text-right badge-primary badge font-weight-normal">Aceptada</span>
+													<span class="text-right badge-primary badge font-weight-normal p-2">Aceptada</span>
 												<?php		
 													} else {
 												?>		
@@ -126,21 +140,21 @@
 												<?php 
 													if ($res->prioridad_tut == "Alta") {
 												?>
-													<span class="text-right badge-danger badge font-weight-normal">Prioridad : <?php echo $res->prioridad_tut; ?></span>
+													<span class="text-right badge-danger badge font-weight-normal p-1">Prioridad : <?php echo $res->prioridad_tut; ?></span>
 												<?php
 													}
 												?>
 												<?php 
 													if ($res->prioridad_tut == "Media") {
 												?>
-													<span class="text-right badge-warning badge font-weight-normal">Prioridad : <?php echo $res->prioridad_tut; ?></span>
+													<span class="text-right badge-warning text-white badge font-weight-normal p-1">Prioridad : <?php echo $res->prioridad_tut; ?></span>
 												<?php
 													}
 												?>
 												<?php 
 													if ($res->prioridad_tut == "Baja") {
 												?>
-													<span class="text-right badge-primary badge font-weight-normal">Prioridad : <?php echo $res->prioridad_tut; ?></span>
+													<span class="text-right badge-primary badge font-weight-normal p-1">Prioridad : <?php echo $res->prioridad_tut; ?></span>
 												<?php
 													}
 												?>
@@ -156,7 +170,7 @@
 												<i class="fas fa-calendar fa-lg icoIni text-primary"></i>
 												Fecha de solicitud : 
 												<span class="font-weight-normal badge badge-pill badge-primary">
-													<?php echo $res->fecha_reg_obs; ?>	
+													<?php echo formatFech($res->fecha_reg_obs); ?>	
 												</span>	
 											</h6>
 											<hr style="height: 2px;" class="bg-info rounded cardShadow">
@@ -168,7 +182,7 @@
 													if ($res->fecha_cita_tut != "" && $res->fecha_cita_tut != "0000-00-00") {
 												?>
 													<span class="font-weight-normal badge badge-pill badge-primary">
-														<?php echo $res->fecha_cita_tut; ?>	
+														<?php echo formatFech($res->fecha_cita_tut); ?>	
 													</span>	
 												<?php
 													} else {

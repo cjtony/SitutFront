@@ -123,9 +123,9 @@
 				</div>
 				<div class="row">
 					<div class="col-md-4 mt-4">
-		                <div class="card text-center shDC">
+		                <div class="card text-center shadowCard">
 		                    <div class="card-header text-left">
-		                    	<a href="Develop.php" class="btn btn-sm btn-info">
+		                    	<a href="<?php echo SERVERURLALM; ?>Develop/" class="btn btn-sm btn-info">
                         			<i class="fas fa-info mr-2"></i>
                         			Info
                         		</a>
@@ -314,23 +314,10 @@
             		<div class="col-md-4 mt-4">
                     	<div class="card text-center shDC">
                         	<div class="card-header text-left">
-                        		<?php 
-                        			if ($datGrpAlm -> acept_grp == 1) {
-                        		?>
-									<a href="#" class="btn btn-sm btn-info">
-	                        			<i class="fas fa-info mr-2"></i>
-	                        			Info
-	                        		</a>
-                        		<?php
-                        			} else {
-                        		?>
-								<a href="#" class="btn btn-sm btn-info disabled">
-                        			<i class="fas fa-info mr-2"></i>
-                        			Info
-                        		</a>
-                        		<?php
-                        			}
-                        		?>
+                        		<a href="#" class="btn btn-sm btn-info">
+                                    <i class="fas fa-info mr-2"></i>
+                                    Manten tus datos actualizados
+                                </a>
                         	</div>	
                         	<div class="card-body">
                             	<h4 class="card-title"><b>Datos Personales</b></h4>
@@ -364,8 +351,7 @@
                     	<div class="card text-center shDC">
                         	<div class="card-header text-left">
                         		<a href="#" class="btn btn-sm btn-info">
-                        			<i class="fas fa-info mr-2"></i>
-                        			Info
+                        			<?php echo $datGrpAlm->grupo_n; ?>
                         		</a>
                         	</div>
                         	<div class="card-body">

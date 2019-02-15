@@ -46,7 +46,7 @@ function editDatPer(e) {
 	let formEditDarPer = document.getElementById('formEditDarPer');
 	let formDat = new FormData($(formEditDarPer)[0]);
 	$.ajax({
-		url : "../ajax/alm/almPet.php?oper=editDatPer",
+		url : "../../ajax/alm/almPet.php?oper=editDatPer",
 		type : "POST", data : formDat,
 		contentType : false, processData : false,
 		success : function( resp ) {

@@ -47,9 +47,7 @@ if ($_SESSION['keyAlm'] == "" || $_SESSION['keyAlm'] == null) {
     <script src="<?php echo SERVERURL; ?>vistas/Assets/js/vendor/popper.min.js"></script>
     <script src="<?php echo SERVERURL; ?>vistas/Js/bootstrap.min.js"></script>
     <script src="<?php echo SERVERURL; ?>vistas/assets/js/vendor/holder.min.js"></script>
-    <!--- Personalizados -->
-    <script src="<?php echo SERVERURLALM; ?>alm/js/confDatAlm.js"></script>
-
+    
 </head>
 <body>
     <style type="text/css">
@@ -169,8 +167,9 @@ if ($_SESSION['keyAlm'] == "" || $_SESSION['keyAlm'] == null) {
 
 	<?php include 'alm/modals/modalTutSol.php'; ?>
 
-	<br><br><br>
 	<?php include 'alm/modals/modalsconfalm.php'; ?>
+    
+    <br><br><br>
 	
     <script type="text/javascript">
             $(window).scroll(function() {
@@ -192,34 +191,26 @@ if ($_SESSION['keyAlm'] == "" || $_SESSION['keyAlm'] == null) {
     </script>
     
     <div class="container-fluid bg-info">
-    <div class="row p-4">
+    <div class="row p-3">
         <div class="col-sm-12">
-            <h4 class="text-center text-white">Redes sociales</h4>
+            <h6 class="text-left text-white">
+                S I T U T
+                <span class="badge badge-pill badge-light ml-3">
+                    Versión 1.0.
+                </span>
+            </h6>
         </div>
-        <div class="col-sm-4 text-center mt-4">
-            <a href="#" class="text-white">
-                <i class="fab text-white fa-facebook fa-2x"></i>
-                <br>
-                Facebook
-            </a>
-        </div>
-        <div class="col-sm-4 text-center mt-4">
-            <a href="#" class="text-white">
-                <i class="fab text-white fa-instagram fa-2x"></i>
-                <br>
-                Instagram
-            </a>
-        </div>
-        <div class="col-sm-4 text-center mt-4">
-            <a href="#" class="text-white">
-                <i class="fab text-white fa-twitter fa-2x"></i>
-                <br>
-                Twitter
-            </a>
-        </div>
-        <div class="col-sm-12 mt-5">
+        <div class="col-sm-12 mt-4 mb-2">
             <h6 class="text-center text-white">
-                <i class="fas fa-copyright"></i> 2018 - 2019 Todos los Derechos Reservados
+                <i class="fas fa-copyright"></i>
+                <script type="text/javascript">
+                    const d = new Date();
+                    document.write(d.getFullYear());
+                </script>
+                Todos los Derechos Reservados
+                <a href="https://cjtony.github.io/marc.github.io/" class="text-white font-weight-bold ml-1">
+                    M A.
+                </a>
             </h6>
         </div>
     </div>

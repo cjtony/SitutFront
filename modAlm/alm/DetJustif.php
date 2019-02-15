@@ -91,9 +91,15 @@
                 </div>
 			</div>
 			<div class="col-sm-12 col-md-12 col-lg-9">
-				<div class="bg-primary text-white p-1" style="border-radius: 8px;">
-					<h4 class="text-center mt-3">Justificantes solicitados</h4>
-				</div>
+				<nav aria-label="breadcrumb">
+				  	<ol class="breadcrumb">
+				    	<li class="breadcrumb-item"><a href="<?php echo SERVERURLALM; ?>Home/">Inicio</a></li>
+				    	<li class="breadcrumb-item active" aria-current="page">
+				    		<i class="fas fa-file-alt ml-2 mr-2"></i>
+				    		Justificantes solicitados
+				    	</li>
+				  	</ol>
+				</nav>
 				<br>
 				<div class="row">
 		      		<div class="col-sm-12 col-md-12 col-lg-6 text-center">
@@ -147,7 +153,6 @@
 												<span class="text-right badge-primary badge font-weight-normal" >Actual</span>
 											</div>
 											<h6 class="text-center">
-												<!-- <i class="fas fa-university fa-lg icoIni text-success"></i> -->
 												Cuatrimestre : 
 												<?php echo $res->cuatrimestre_justif; ?>
 											</h6>
@@ -157,7 +162,7 @@
 											<h6 class="text-center">
 												<i class="fas fa-file-alt fa-lg icoIni text-primary"></i>
 												Justificantes : 
-												<span style="font-size: 20px;" class="font-weight-normal badge badge-pill badge-primary">
+												<span style="font-size: 18px;" class="font-weight-normal badge badge-pill badge-primary">
 													<?php echo $res->CantJus; ?>	
 												</span>	
 											</h6>

@@ -1,14 +1,17 @@
 a {
 	text-decoration: none !important;
 }
+
 .aNav {
 	font-size: 17px !important;
 }
+
 body {
 	font-family: 'Arimo', sans-serif !important;
 	background-color: white;
 	overflow-x: hidden;
 }
+
 .bgModal {
 	background-color: rgba(43, 165, 137, 0.45);
 }
@@ -83,6 +86,33 @@ body {
 
 .iniSes {
 	font-family: 'Open Sans', sans-serif;
+}
+
+.shadowCard {
+	box-shadow: 4px 4px #ddd;
+	transition: .07s;
+}
+
+.shadowCard:hover {
+	transform: scale(1.05,1.05);
+	box-shadow: 4px 4px #eee;
+	/*transform: rotate(-5deg);*/
+}
+
+.shadowCard:hover {
+	color: #17a2b8;
+}
+
+.goodPass {
+	color: green;
+}
+
+.medPass {
+	color: orange;
+}
+
+.badPass {
+	color: red;
 }
 
 @media (min-width: 992px){

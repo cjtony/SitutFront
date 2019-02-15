@@ -5,6 +5,8 @@
     <meta charset=utf-8>
     <meta name=description content="">
     <meta name=viewport content="width=device-width, initial-scale=1">
+    <!-- Icono -->
+    <link rel="shortcut icon" href="vistas/img/SITUT (1).jpg">
     <!-- Estilos Bootstrap -->
     <link rel="stylesheet" type="text/css" href="vistas/css/bootstrap.min.css">
     <!-- Estilos Animate -->

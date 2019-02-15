@@ -93,12 +93,16 @@
                     </div><!-- Comentarios -->
                 </div>
 			</div>
-			<form class="col-md-8 col-lg-9 cardShadow pad10" method="POST" id="formEditEnc" name="formEditEnc" autocomplete="off">
-				<div class="bg-primary text-center p-3 rounded" style="border-radius: 8px;">
-					<h4 class="text-white">
-						<i class="fas fa-edit fa-lg icoIni"></i>
-						Editar registro de entrevista inicial para tutorías.</h4>
-				</div>
+			<form class="col-md-8 col-lg-9 pad10" method="POST" id="formEditEnc" name="formEditEnc" autocomplete="off">
+				<nav aria-label="breadcrumb">
+				  	<ol class="breadcrumb">
+				    	<li class="breadcrumb-item"><a href="<?php echo SERVERURLALM; ?>Home/">Inicio</a></li>
+				    	<li class="breadcrumb-item active" aria-current="page">
+				    		<i class="fas fa-edit ml-2 mr-2"></i>
+				    		Editar encuesta
+				    	</li>
+				  	</ol>
+				</nav>
 				<input type="hidden" class="form-control" value="<?php echo base64_encode($testVal->id_enctestalm) ?>" name="clvTest">
 				<div id="mostDat1">
 					<!-- <hr style="height: 5px;" class="rounded bg-primary"><br> -->
