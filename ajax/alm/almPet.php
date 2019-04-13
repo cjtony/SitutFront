@@ -346,15 +346,18 @@ if ($_SESSION['keyAlm'] == "" || $_SESSION['keyAlm'] == null) {
 					date_add($fecha, date_interval_create_from_date_string('1 days'));
 					$fechaLim =  date_format($fecha, 'Y-m-d');
 					if ($fechAct < $fechaLim) {
-						echo "<div class='row pad10'>
-								<div class='col-sm-1'>
-									<i class='fas fa-lg text-success fa-check-circle'></i>
-								</div>
-								<div class='col-sm-11'>
-									<h6> El tutor ".$data->nombre_c_doc." ha aceptado la solicitud del justificante con fecha = ".$Fecha." </h6>
-								</div>
-							</div>
-							<hr style='height:2px;' class='bg-success rounded'>";
+						echo '<a class="dropdown-item d-flex align-items-center" href="#">
+	                    <div class="mr-3">
+	                      <div class="icon-circle bg-primary">
+	                        <i class="fas fa-file-alt text-white"></i>
+	                      </div>
+	                    </div>
+	                    <div>
+	                      <span class="font-weight-bold">
+	                      	El tutor '.$data->nombre_c_doc.' acepto tu justificante con fecha del = '.$Fecha.' 
+	                      </span>
+	                    </div>
+	                  </a>';
 					} else {
 						echo null;
 					}
@@ -383,17 +386,20 @@ if ($_SESSION['keyAlm'] == "" || $_SESSION['keyAlm'] == null) {
 				$meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
 				$Fecha = date($fechD)." de ".$meses[date($fechM)-1]. " del ".date($fechDat);
 		   		//$Fecha = $dias[date('w')]." ".date($fechD)." de ".$meses[date($fechM)-1]. " del ".date($fechDat);
-				if ($fechAct < $data->fecha_cita_tut) {
-					echo "<div class='row pad10'>
-							<div class='col-sm-5'>
-								<h6>".$Fecha."</h6>
-								<h6>Hora: ".$data->hora_cit_tut."</h6>
-							</div>
-							<div class='col-sm-7 text-success'>
-								<h6>Solicitud de tutoría personal aceptada</h6>
-							</div>
-						</div>
-						<hr style='height:2px;' class='bg-success rounded'>";
+				if ($fechAct <= $data->fecha_cita_tut) {
+					echo '<a class="dropdown-item d-flex align-items-center" href="#">
+	                    <div class="mr-3">
+	                      <div class="icon-circle bg-primary">
+	                        <i class="fas fa-check-circle text-white"></i>
+	                      </div>
+	                    </div>
+	                    <div>
+	                      <span class="font-weight-bold">
+	                      	'.$Fecha.' / '.$data->hora_cit_tut.' 
+	                      </span>
+	                      <div class="small text-gray-500">Solicitud de tutoría personal aceptada</div>
+	                    </div>
+	                  </a>';
 				} else {
 					echo null;
 				}

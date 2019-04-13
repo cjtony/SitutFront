@@ -2,9 +2,10 @@ function init() {
 	$("#formSolicTutoria").on("submit", function(e) {
 		regTutPer(e);
 	});
-	setInterval(function(){
-		cantTutPer();
-	},800);
+	cantTutPer();
+	// setInterval(function(){
+	// 	cantTutPer();
+	// },800);
 }
 
 function cantTutPer() {
@@ -14,14 +15,9 @@ function cantTutPer() {
 		success:function (data) {
 			if (data) {
 				$('.listTut').html(data);
-				$("#bell").addClass("animated tada");
-				$("#dropdownMenuLink2").addClass("text-danger");
-				$("#cls2").removeClass("ocult");
-				$("#cls2").show();
+				$("#bell2").addClass("text-danger");
 			} else {
-				$("#dropdownMenuLink2").removeClass("text-danger");
-				$("#dropdownMenuLink2").addClass("text-primary");
-				$("#cls2").hide();
+				$("#bell2").removeClass("text-danger");
 				$('.listTut').text("");
 			}
 		}
@@ -36,7 +32,7 @@ function regTutPer(e) {
 	if (razTut.length > 0) {
 		if (priodTut.value != "0") {
 			$.ajax({
-				url : "../ajax/alm/almPet.php?oper=regTutPer",
+				url : "../../ajax/alm/almPet.php?oper=regTutPer",
 				type : "POST", data : formDat, 
 				contentType : false, processData : false,
 				success : function( resp ) {

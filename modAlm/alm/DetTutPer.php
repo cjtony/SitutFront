@@ -164,6 +164,7 @@
 			</div>
 		</div>
 	</div>
+  	<script src="<?php echo SERVERURLALM; ?>alm/js/justif.js"></script>
     <script src="<?php echo SERVERURLALM; ?>alm/js/grpAlm.js"></script>
     <script src="<?php echo SERVERURLALM; ?>alm/js/tutAlm.js"></script>
 <?php

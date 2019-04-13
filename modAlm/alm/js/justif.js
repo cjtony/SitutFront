@@ -67,14 +67,9 @@ function cantNotifJust() {
 		success:function (data) {
 			if (data) {
 				$('.listNot').html(data);
-				$("#bell").addClass("animated tada");
-				$("#dropdownMenuLink").addClass("text-danger");
-				$("#cls").removeClass("ocult");
-				$("#cls").show();
+				$("#bell").addClass("text-danger");
 			} else {
-				$("#dropdownMenuLink").removeClass("text-danger");
-				$("#dropdownMenuLink").addClass("text-primary");
-				$("#cls").hide();
+				$("#bell").removeClass("text-danger");
 				$('.listNot').text("");
 			}
 		}

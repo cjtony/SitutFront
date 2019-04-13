@@ -1,35 +1,4 @@
 <div class="container">
-		<!-- <div class="row">
-			<div class="col-sm-12 text-right">
-				<?php 
-					if ($datAlm -> id_detgrupo != "" && $datAlm -> acept_grp == 1) {
-				?>
-					<button class="btn bg-white text-primary cardShadow btn-md dropdown-toggle mr-3" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				    Justificantes <i id="bell" class="fas fa-bell fa-lg icoPri"></i>
-				    	<span class="lead icoIni icoPri" id="cantNotifNum"></span>
-				  	</button>
-				  	<div class="dropdown-menu" style="width: 500px;" aria-labelledby="dropdownMenuLink">
-				  		<div class="container-fluid listNot">
-				  		</div>
-					</div>
-					<div class="btn-group mr-3">
-					  	<button class="btn text-primary bg-white cardShadow btn-md dropdown-toggle" href="#" role="button" id="dropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Tutorías <i id="bell" class="fas fa-bell fa-lg icoPri"></i>
-					    	<span class="lead icoIni icoPri" id="cantNotifTut"></span>
-					  	</button>
-					  	<div class="dropdown-menu" style="width: 500px;" aria-labelledby="dropdownMenuLink2">
-					  		<div class="container-fluid listTut">
-				  			</div>
-					  		</div>
-						</div>
-				<?php
-					}
-				?>
-			</div>
-			</div>
-			</div>
-		</div> -->
-	</div>
     <?php 
         if ($datAlm -> id_detgrupo != "") {
             if ($datGrpAlm -> acept_grp == 0) {
@@ -214,43 +183,3 @@
 
     </div>
 
-	<!-- <div class="container-fluid mt-4">
-		<div class="row">
-			<div class="col-md-8 col-lg-9">
-				<?php 
-					if ($datAlm -> id_detgrupo != "") {
-				?>
-				<div class="row">
-					<div class="col-md-4 mt-4">
-		                <div class="card text-center shadowCard">
-		                    <div class="card-header text-left">
-		                    	<a href="<?php echo SERVERURLALM; ?>Develop/" class="btn btn-sm btn-info">
-                        			<i class="fas fa-info mr-2"></i>
-                        			Info
-                        		</a>
-		                    </div>
-		                    <div class="card-body">
-		                        <h4 class="card-title"><b>Acerca de</b></h4>
-		                        <p class="card-text text-info">
-		                           	Desarrolladores involucrados en la realización del proyecto.
-		                        </p>
-		                        <a href="#" class="btn btn-primary">Detalles</a>
-		                    </div>
-		                    <div class="card-footer text-muted">
-		                        <i class="fas text-info fa-flag fa-lg"></i>
-		                    </div>
-		                </div>   
-		            </div>
-				</div>
-				<?php		
-					}
-				?>
-			</div>
-		</div>
-	</div> -->
-
-    <!-- <script src="<?php echo SERVERURLALM; ?>alm/js/justif.js"></script> -->
-    <!-- <script src="<?php echo SERVERURLALM; ?>alm/js/datPerAlm.js"></script> -->
-    <!-- <script src="<?php echo SERVERURLALM; ?>alm/js/editDatPerAlm.js"></script> -->
-   <!--  <script src="<?php echo SERVERURLALM; ?>alm/js/grpAlm.js"></script> -->
-    <!--<script src="<?php echo SERVERURLALM; ?>alm/js/tutAlm.js"></script>-->

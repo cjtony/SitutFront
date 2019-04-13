@@ -43,5 +43,3 @@
 	    </div>
 	  </div>
 	</div>
-
-	<script src="<?php echo SERVERURLALM; ?>alm/js/tutAlm.js"></script>

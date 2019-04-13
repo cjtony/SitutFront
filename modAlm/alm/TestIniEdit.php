@@ -116,8 +116,8 @@
 	  </div>
 	</div>
 
-    <script src="<?php echo SERVERURLALM; ?>alm//js/testEdit.js"></script>
-    <script src="<?php echo SERVERURLALM; ?>alm//js/validTest.js"></script>
+    <script src="<?php echo SERVERURLALM; ?>alm/js/testEdit.js"></script>
+    <script src="<?php echo SERVERURLALM; ?>alm/js/validTest.js"></script>
 <?php
 		} else {
 			header("Location:".SERVERURLALM."alm/Logout.php");

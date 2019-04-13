@@ -151,7 +151,8 @@
 
 	</div>
 
-    <script src="<?php echo SERVERURLALM; ?>alm/js/justif.js"></script>
+    <script src="<?php echo SERVERURLALM; ?>alm/js/tutAlm.js"></script>
+  <script src="<?php echo SERVERURLALM; ?>alm/js/justif.js"></script>
     
 <?php
 	} else {

@@ -33,7 +33,7 @@ if ($_SESSION['keyAlm'] == "" || $_SESSION['keyAlm'] == null) {
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SitutBack</title>
+  <title>SitutFront</title>
 
   
   <link href="<?php echo SERVERURL; ?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -370,54 +370,31 @@ if ($_SESSION['keyAlm'] == "" || $_SESSION['keyAlm'] == null) {
 
             <li class="nav-item dropdown no-arrow mx-1">
               <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-envelope fa-fw"></i>
-                <span class="badge badge-danger badge-counter">7</span>
+                <i class="fas fa-file-medical fa-fw" id="bell"></i>
+                <!-- <span class="badge badge-danger badge-counter">7</span> -->
               </a>
               <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
                 <h6 class="dropdown-header">
-                  Message Center
+                  Justificantes
                 </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div class="font-weight-bold">
-                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                    <div class="small text-gray-500">Emily Fowler · 58m</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-                    <div class="status-indicator"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-                    <div class="small text-gray-500">Jae Chun · 1d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-                    <div class="status-indicator bg-warning"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+                <div  class="listNot">
+                  
+                </div>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-chalkboard-teacher fa-fw" id="bell2"></i>
+                <!-- <span class="badge badge-danger badge-counter">7</span> -->
+              </a>
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
+                <h6 class="dropdown-header">
+                  Tutorias
+                </h6>
+                <div  class="listTut">
+                  
+                </div>
               </div>
             </li>
 
@@ -548,6 +525,227 @@ if ($_SESSION['keyAlm'] == "" || $_SESSION['keyAlm'] == null) {
   <!-- Custom scripts for all pages-->
   <script src="<?php echo SERVERURL; ?>assets/js/sb-admin-2.min.js"></script>
 
+
+  <script type="text/javascript">
+    function init() {
+      $("#formSolicTutoria").on("submit", function(e) {
+        regTutPer(e);
+      });
+      cantTutPer();
+      $("#formSolicJustif").on("submit", function(e){
+        regJustif(e);
+      });
+      justCantTot();
+      justCantCut();
+      justCantAcept();
+      justCantRech();
+      cantNotifJust();
+      // setInterval(function(){
+      //  cantTutPer();
+      // },800);
+    }
+
+    function cantTutPer() {
+        $.ajax({
+          url:'<?php echo SERVERURL; ?>ajax/alm/almPet.php?oper=cantTutPer',
+        type : "POST",
+        success:function (data) {
+          if (data) {
+            $('.listTut').html(data);
+            $("#bell2").addClass("text-danger");
+          } else {
+            $("#bell2").removeClass("text-danger");
+            $('.listTut').text("");
+          }
+        }
+        });
+    }
+
+    function regTutPer(e) {
+      e.preventDefault();
+      let formSolicTutoria = document.getElementById('formSolicTutoria'),
+      formDat = new FormData($(formSolicTutoria)[0]), razTut = $("#razTut").val(),
+      priodTut = document.getElementById('priodTut');
+      if (razTut.length > 0) {
+        if (priodTut.value != "0") {
+          $.ajax({
+            url : "<?php echo SERVERURL; ?>ajax/alm/almPet.php?oper=regTutPer",
+            type : "POST", data : formDat, 
+            contentType : false, processData : false,
+            success : function( resp ) {
+              if ( resp === "goodIns" ) {
+                swal({
+                  title : "Solicitud de tutoría enviada...",
+                  text : "Ahora espera a que el tutor la acepte",
+                  icon : "success",
+                  button : "Aceptar",
+                  closeOnClickOutside: false
+                }).then( ( acepta ) => {
+                  location.reload();
+                });
+              } else if ( resp === "failIns" ) {
+                swal({
+                  title : "Ocurrio un problema",
+                  text : "Solicitud no enviada",
+                  icon : "error",
+                  button : "Aceptar"
+                });
+                $("#razTut").val("");
+              } else {
+                console.log( resp );
+              }
+            }
+          });
+        } else {
+          swal({
+            text : "Selecciona una prioridad del porque solicita una tutoría",
+            icon : "warning",
+            button : "Aceptar",
+            closeOnClickOutside : false,
+          }).then( ( acepta ) => {
+            $("#priodTut").focus();
+          });
+        }
+      } else {
+        swal({
+          text : "Introduzca la razón del porque solicita una tutoría",
+          icon : "warning",
+          button : "Aceptar",
+          closeOnClickOutside : false,
+        }).then( ( acepta ) => {
+          $("#razTut").focus();
+        });
+      }
+    }
+
+    function justCantTot() {
+      $.ajax({
+          url:'<?php echo SERVERURL; ?>ajax/alm/almPet.php?oper=justCantTot',
+        type : "POST",
+        success:function (data) {
+          $("#justCantTot").text(data);
+        }
+        });
+        //requestAnimationFrame(justCantTot);
+    }
+
+    function justCantCut() {
+      $.ajax({
+          url:'<?php echo SERVERURL; ?>ajax/alm/almPet.php?oper=justCantCut',
+        type : "POST",
+        success:function (data) {
+          $("#justCantCut").text(data);
+        }
+        });
+        //requestAnimationFrame(justCantCut);
+    }
+
+    function justCantAcept() {
+      $.ajax({
+          url:'<?php echo SERVERURL; ?>ajax/alm/almPet.php?oper=justCantAcept',
+        type : "POST",
+        success:function (data) {
+          $("#justCantAcept").text(data);
+        }
+        });
+        //requestAnimationFrame(justCantAcept);
+    }
+
+    function justCantRech() {
+      $.ajax({
+          url:'<?php echo SERVERURL; ?>ajax/alm/almPet.php?oper=justCantRech',
+        type : "POST",
+        success:function (data) {
+          $("#justCantRech").text(data);
+        }
+        });
+        //requestAnimationFrame(justCantRech);
+    }
+
+    function cantNotifJust() {
+        $.ajax({
+          url:'<?php echo SERVERURL; ?>ajax/alm/almPet.php?oper=cantNotifJust',
+        type : "POST",
+        success:function (data) {
+          if (data) {
+            $('.listNot').html(data);
+            $("#bell").addClass("text-danger");
+          } else {
+            $("#bell").removeClass("text-danger");
+            $('.listNot').text("");
+          }
+        }
+        });
+        //requestAnimationFrame(cantNotifJust);
+    }
+
+    function regJustif(e) {
+      e.preventDefault();
+      let formSolicJustif = document.getElementById('formSolicJustif');
+      let formDat = new FormData($(formSolicJustif)[0]);
+      let extPerm = /(.jpg)$/i, extPerm1 = /(.jpeg)$/i, extPerm2 = /(.png)$/i, extPerm3 = /(.pdf)$/i;
+      let sitJustif = $("#sitJustif").val(), archJustif = document.getElementById('archJustif').value,
+      fechJustif = $("#fechJustif").val();
+      if (sitJustif.length > 0) {
+        if (archJustif.length > 0) {
+          if (!extPerm.exec(archJustif) && !extPerm1.exec(archJustif) && !extPerm2.exec(archJustif) 
+            && !extPerm3.exec(archJustif)) {
+            //console.log('Archivo incorrecto');
+            $("#archJustif").val("");
+          }
+        } 
+        if (fechJustif.length > 0) {
+          $.ajax({
+            url : "<?php echo SERVERURL; ?>ajax/alm/almPet.php?oper=regJustif",
+            type : "POST", data : formDat, 
+            contentType : false, processData : false,
+            success : function( resp ) {
+              if ( resp === "goodIns" ) {
+                swal({
+                  title : "Correcto...!",
+                  text : "La solicitud de justificante ah sido enviada",
+                  icon : "success",
+                  button : false
+                });
+                setTimeout(function() {
+                  location.reload();
+                }, 2000);
+              } else if ( resp === "failIns" ) {
+                swal({
+                  title : "Ocurrio un problema :(",
+                  text : "No se pudo enviar la solicitud",
+                  icon : "error",
+                  button : "Aceptar"
+                }).then( ( acepta ) => {
+                  $("#sitJustif").val("");
+                  $("#archJustif").val("");
+                  $("#fechJustifh").val("");
+                });
+              }
+            }
+          });
+        } else {
+          swal({
+            text : "Selecciona la fecha que faltaste",
+            icon : "warning",
+            button : "Aceptar"
+          }).then( ( acepta ) => {
+            $("#fechJustif").focus();
+          });
+        }
+      } else {
+        swal({
+          text : "Introduce la situación del porque faltaste",
+          icon : "warning",
+          button : "Aceptar"
+        }).then( ( acepta ) => {
+          $("#sitJustif").focus();
+        });
+      }
+    }
+
+    init();
+  </script>
   
 </body>
 

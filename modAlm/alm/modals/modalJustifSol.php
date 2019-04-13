@@ -45,4 +45,4 @@
 	  </div>
 	</div>
 
-	<script src="<?php echo SERVERURLALM; ?>alm/js/justif.js"></script>
+	
