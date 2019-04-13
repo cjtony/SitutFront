@@ -209,6 +209,10 @@ if ($_SESSION['keyAlm'] == "" || $_SESSION['keyAlm'] == null) {
                     <i class="fas fa-plus mr-2"></i>
                     Solicitar
                   </a>
+                  <a href="<?php echo SERVERURLALM; ?>DetTutPer/" class="collapse-item text-primary font-weight-bold">
+                    <i class="fas fa-info mr-2"></i>
+                    Detalles
+                  </a>
               <?php
                 } else {
               ?>
@@ -280,7 +284,7 @@ if ($_SESSION['keyAlm'] == "" || $_SESSION['keyAlm'] == null) {
             <div class="bg-white py-2 collapse-inner rounded">
               <h6 class="collapse-header">Selecciona:</h6>
                 <a href="#" class="collapse-item text-primary font-weight-bold" data-target="#editMyGrp" data-toggle="modal">
-                  <i class="fas fa-plus mr-2"></i>Editar
+                  <i class="fas fa-edit mr-2"></i>Editar
                 </a>
             </div>
           </div>
@@ -429,13 +433,13 @@ if ($_SESSION['keyAlm'] == "" || $_SESSION['keyAlm'] == null) {
                   echo "<img src='".SERVERURL."vistas/img/usermal.png' class='img-profile rounded-circle'>";
                 } else if ($datAlm -> foto_perf_alm != "" && $datAlm -> sexo_al == "Masculino") {
               ?>
-                <img src="../Arch/perfil/<?php echo $datAlm->foto_perf_alm ?>" class="img-profile rounded-circle">
+                <img src="<?php echo SERVERURLALM; ?>Arch/perfil/<?php echo $datAlm->foto_perf_alm ?>" class="img-profile rounded-circle">
               <?php
                 } else if ($datAlm -> foto_perf_alm == "" && $datAlm -> sexo_al == "Femenino") {
                   echo "<img src='".SERVERURL."vistas/img/userfem.png' class='img-profile rounded-circle'>";
                 } else if ($datAlm -> foto_perf_alm != "" && $datAlm -> sexo_al == "Femenino") {
               ?>
-                <img src="../Arch/perfil/<?php echo $datAlm->foto_perf_alm ?>" class="img-profile rounded-circle">
+                <img src="<?php echo SERVERURLALM ?>Arch/perfil/<?php echo $datAlm->foto_perf_alm ?>" class="img-profile rounded-circle">
               <?php
                 } else {
                   echo "<img src='".SERVERURL."vistas/img/icous.png' class=' img-profile rounded-circle'>";

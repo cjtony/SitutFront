@@ -2,7 +2,7 @@
 	  <div class="modal-dialog modal-dialog-centered" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h5 class="modal-title text-info" id="exampleModalLabel"><i class="fas fa-edit fa-lg icoIni"></i>Mi grupo</h5>
+	      	<h6 class="modal-title font-weight-bold mb-0 text-gray-700" id="exampleModalLabel"><i class="fas text-gray-300 fa-edit fa-lg mr-2"></i> Mi grupo </h6>
 	        <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
@@ -40,10 +40,10 @@
 	        	<div class="col-sm-1"></div>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" id="btnCloseEditMyGrp" class="btn btn-outline-danger" data-dismiss="modal">
+	        <button type="button" id="btnCloseEditMyGrp" class="btn btn-outline-danger btn-sm" data-dismiss="modal">
 	        	<i class="fas fa-times-circle mr-2"></i>
 	        	Cerrar</button>
-	        <button type="submit" class="btn btn-outline-primary">
+	        <button type="submit" class="btn btn-outline-primary btn-sm">
 	        	<i class="fas fa-check-circle mr-2"></i>
 	        	Guardar</button>
 	        </form>

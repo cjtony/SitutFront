@@ -35,78 +35,12 @@
 			box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
     	}
 	</style>
-	<div class="container-fluid mt-4">
+	<div class="container-fluid animated fadeIn delay-1s mt-4">
+		<div class="d-sm-flex align-items-center justify-content-between mb-4">
+	        <h1 class="h3 mb-0 text-gray-800">Tutorias personales solicitadas</h1>
+	    </div>
 		<div class="row">
-			<div class="col-md-4 col-lg-3">
-				<!-- SobreMi -->
-                <div class="container py-5">
-                    <div class="card shDC">
-                        <img class="card-img-top" src="<?php echo SERVERURL; ?>vistas/img/iceland.jpg" alt="Card image cap">
-                        <div class="text-center margen-avatar">
-                        	<?php 
-								if ($datAlm -> foto_perf_alm == "" && $datAlm -> sexo_al == "Masculino") {
-									echo "<img src='".SERVERURL."vistas/img/usermal.png' class='rounded-circle' width='100px'>";
-								} else if ($datAlm -> foto_perf_alm != "" && $datAlm -> sexo_al == "Masculino") {
-							?>
-								<img src="<?php echo SERVERURLALM; ?>Arch/perfil/<?php echo $datAlm->foto_perf_alm ?>" class="rounded-circle" width="100px">
-							<?php
-								} else if ($datAlm -> foto_perf_alm == "" && $datAlm -> sexo_al == "Femenino") {
-									echo "<img src='".SERVERURL."vistas/img/userfem.png' class='rounded-circle' width='100px'>";
-								} else if ($datAlm -> foto_perf_alm != "" && $datAlm -> sexo_al == "Femenino") {
-							?>
-								<img src="<?php echo SERVERURLALM; ?>Arch/perfil/<?php echo $datAlm->foto_perf_alm ?>" class="rounded-circle" width="100px"">
-							<?php
-								} else {
-									echo "<img src='".SERVERURL."vistas/img/icous.png' class='rounded-circle' width='100px'>";
-								}
-							?>
-                        </div>
-                        <div class="card-body text-center">
-                        <h6 class="card-title font-weight-bold">
-                        	<?php echo $datAlm -> nombre_c_al; ?>
-                        </h6>
-                        <h6 class=" text-left mt-4">
-							<i class="fas fa-id-card-alt fa-lg icoIni"></i>
-							<?php echo $datAlm -> matricula_al; ?>
-						</h6>
-						<h6 class=" text-left mt-3">
-							<i class="fas fa-envelope fa-lg icoIni"></i>
-							<?php echo $datAlm -> correo_al; ?>
-						</h6>
-						<h6 class=" text-left mt-3">
-							<i class="fas fa-phone fa-lg icoIni"></i>
-							<?php echo $datAlm -> telefono_al; ?>
-						</h6>
-                        </div>
-                    </div>
-                </div><!-- SobreMi -->
-                <div class="container">
-                    <!-- Comentarios -->
-                    <div class="card">
-                        <div class="card-header text-center">
-                            Frase Celebre
-                        </div>
-                        <div class="card-body">
-                            <blockquote class="blockquote mb-0">
-                            <p class="font-italic text-info">
-                            	<b>"</b> Todo el mundo tiene talento, solo es cuestión de moverse hasta descubrirlo. <b>"</b>
-                            </p>
-                            <footer class="blockquote-footer"><cite title="Source Title">George Lucas</cite></footer>
-                            </blockquote>
-                        </div>
-                    </div><!-- Comentarios -->
-                </div>
-			</div>
-			<div class="col-md-8 col-lg-9">
-				<nav aria-label="breadcrumb">
-				  	<ol class="breadcrumb">
-				    	<li class="breadcrumb-item"><a href="<?php echo SERVERURLALM; ?>Home/">Inicio</a></li>
-				    	<li class="breadcrumb-item active" aria-current="page">
-				    		<i class="fas fa-chalkboard-teacher ml-2 mr-2"></i>
-				    		Tutoría
-				    	</li>
-				  	</ol>
-				</nav>
+			<div class="col-md-12 col-lg-12">
 				<div class="row pad30">
 					<?php 
 						$dbc = Connect::getDB();
@@ -120,7 +54,7 @@
 							while ($res = $stmt -> fetch(PDO::FETCH_OBJ)) {
 					?>
 							<div class="col-sm-12 col-lg-6">
-								<div class="card pad10 cardShadow rounded">
+								<div class="card pad10 shadow rounded border-left-primary">
 									<div class=" card-body">
 										<div class="card-title mb-4">
 											<div class="text-left mb-1">
@@ -164,8 +98,7 @@
 												<?php echo $res->razones_tut; ?>
 											</h5>
 										</div>
-										<hr style="height: 2px;" class="bg-info rounded cardShadow">
-										<div class="card-text mt-4">
+										<div class="card-text mt-2">
 											<h6 class="text-center">
 												<i class="fas fa-calendar fa-lg icoIni text-primary"></i>
 												Fecha de solicitud : 
@@ -173,7 +106,7 @@
 													<?php echo formatFech($res->fecha_reg_obs); ?>	
 												</span>	
 											</h6>
-											<hr style="height: 2px;" class="bg-info rounded cardShadow">
+											<hr style="height: 2px;" class="bg-primary rounded cardShadow">
 											<h6 class="text-left mt-3">
 												<i class="fas fa-calendar-check fa-lg icoIni text-primary">
 												</i>

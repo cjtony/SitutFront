@@ -2,8 +2,8 @@
 	  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-address-card fa-lg icoIni"></i>Completar datos personales</h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	        <h6 class="modal-title font-weight-bold mb-0 text-gray-700" id="exampleModalLabel"><i class="fas text-gray-300 fa-address-card fa-lg mr-2"></i> Completar datos personales</h6>
+	        <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
@@ -151,8 +151,14 @@
 	        	<div class="col-sm-1"></div>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" id="btnCloseDatPer" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-	        <button type="submit" class="btn btn-success" id="btnGDatPer">Guardar</button>
+	        <button type="button" id="btnCloseDatPer" class="btn btn-outline-danger btn-sm" data-dismiss="modal">
+	        	<i class="fas fa-times-circle mr-2"></i>
+	        	Cerrar
+	        </button>
+	        <button type="submit" class="btn btn-outline-primary btn-sm" id="btnGDatPer">
+	        	<i class="fas fa-check-circle mr-2"></i>
+	        	Guardar cambios
+	        </button>
 	        </form>
 	      </div>
 	    </div>

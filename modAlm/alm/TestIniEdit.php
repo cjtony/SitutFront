@@ -31,85 +31,21 @@
         	margin-top:-50px;
     	}
 	</style>
-	<div class="container-fluid mt-4">
-		<div class="row">
-			<div class="col-md-4 col-lg-3">
-				<!-- SobreMi -->
-                <div class="container py-5">
-                    <div class="card shDC">
-                        <img class="card-img-top" src="<?php echo SERVERURL; ?>vistas/img/iceland.jpg" alt="Card image cap">
-                        <div class="text-center margen-avatar">
-                        	<?php 
-								if ($datAlm -> foto_perf_alm == "" && $datAlm -> sexo_al == "Masculino") {
-									echo "<img src='".SERVERURL."vistas/img/usermal.png' class='rounded-circle' width='100px'>";
-								} else if ($datAlm -> foto_perf_alm != "" && $datAlm -> sexo_al == "Masculino") {
-							?>
-								<img src="<?php echo SERVERURLALM; ?>Arch/perfil/<?php echo $datAlm->foto_perf_alm ?>" class="rounded-circle" width="100px">
-							<?php
-								} else if ($datAlm -> foto_perf_alm == "" && $datAlm -> sexo_al == "Femenino") {
-									echo "<img src='".SERVERURL."vistas/img/userfem.png' class='rounded-circle' width='100px'>";
-								} else if ($datAlm -> foto_perf_alm != "" && $datAlm -> sexo_al == "Femenino") {
-							?>
-								<img src="<?php echo SERVERURLALM; ?>Arch/perfil/<?php echo $datAlm->foto_perf_alm ?>" class="rounded-circle" width="100px"">
-							<?php
-								} else {
-									echo "<img src='../vistas/img/icous.png' class='rounded-circle' width='100px'>";
-								}
-							?>
-                        </div>
-                        <div class="card-body text-center">
-                        <h6 class="card-title font-weight-bold">
-                        	<?php echo $datAlm -> nombre_c_al; ?>
-                        </h6>
-                        <h6 class=" text-left mt-4">
-							<i class="fas fa-id-card-alt fa-lg icoIni"></i>
-							<?php echo $datAlm -> matricula_al; ?>
-						</h6>
-						<h6 class=" text-left mt-3">
-							<i class="fas fa-envelope fa-lg icoIni"></i>
-							<?php echo $datAlm -> correo_al; ?>
-						</h6>
-						<h6 class=" text-left mt-3">
-							<i class="fas fa-phone fa-lg icoIni"></i>
-							<?php echo $datAlm -> telefono_al; ?>
-						</h6>
-                        </div>
-                    </div>
-                </div><!-- SobreMi -->
-                <div class="container">
-                    <!-- Comentarios -->
-                    <div class="card">
-                        <div class="card-header text-center">
-                            Frase Celebre
-                        </div>
-                        <div class="card-body">
-                            <blockquote class="blockquote mb-0">
-                            <p class="font-italic text-info">
-                            	<b>"</b> Todo el mundo tiene talento, solo es cuestión de moverse hasta descubrirlo. <b>"</b>
-                            </p>
-                            <footer class="blockquote-footer"><cite title="Source Title">George Lucas</cite></footer>
-                            </blockquote>
-                        </div>
-                    </div><!-- Comentarios -->
-                </div>
-			</div>
-			<form class="col-md-8 col-lg-9 pad10" method="POST" id="formEditEnc" name="formEditEnc" autocomplete="off">
-				<nav aria-label="breadcrumb">
-				  	<ol class="breadcrumb">
-				    	<li class="breadcrumb-item"><a href="<?php echo SERVERURLALM; ?>Home/">Inicio</a></li>
-				    	<li class="breadcrumb-item active" aria-current="page">
-				    		<i class="fas fa-edit ml-2 mr-2"></i>
-				    		Editar encuesta
-				    	</li>
-				  	</ol>
-				</nav>
+	<div class="container-fluid animated fadeIn delay-1s mt-4">
+
+		<div class="d-sm-flex align-items-center justify-content-between mb-4">
+	        <h1 class="h3 mb-0 text-gray-800">Editar encuesta.</h1>
+	    </div>
+
+		<div class="row mt-4">
+			<form class="col-md-12 col-lg-12 shadow rounded border-left-primary p-3 bg-white" method="POST" id="formEditEnc" name="formEditEnc" autocomplete="off">
 				<input type="hidden" class="form-control" value="<?php echo base64_encode($testVal->id_enctestalm) ?>" name="clvTest">
 				<div id="mostDat1">
 					<!-- <hr style="height: 5px;" class="rounded bg-primary"><br> -->
 					<div class="text-center mt-4">
-						<h4 class="text-center text-info">Datos SocioEconomicos</h4>
+						<h4 class="text-center text-primary">Datos SocioEconomicos</h4>
 					</div>
-					<hr style="height: 5px;" class="rounded bg-info">
+					<hr style="height: 5px;" class="rounded bg-primary">
 					<br>
 					<?php include "modTest/DatSocioEconomicosEdit.php"; ?>
 					<div class="row" id="contBtn1Val">
@@ -124,9 +60,9 @@
 				</div>
 				<div id="mostDat2" class="ocult">
 					<div class="text-center" id="prb1">
-						<h4 class="text-center text-info">Datos Personales</h4>
+						<h4 class="text-center text-primary">Datos Personales</h4>
 					</div>
-					<hr style="height: 5px;" class="rounded bg-info">
+					<hr style="height: 5px;" class="rounded bg-primary">
 					<br>
 					<?php include "modTest/DatPersonalesEdit.php"; ?>
 					<div class="row" id="contBtn2Val">
@@ -141,9 +77,9 @@
 				</div>
 				<div id="mostDat3" class="ocult">
 					<div class="text-center">
-						<h4 class="text-center text-info">Datos Academicos</h4>
+						<h4 class="text-center text-primary">Datos Academicos</h4>
 					</div>
-					<hr style="height: 5px;" class="rounded bg-info">
+					<hr style="height: 5px;" class="rounded bg-primary">
 					<br>
 					<?php include "modTest/DatAcademicosEdit.php"; ?>
 					<div class="row">
